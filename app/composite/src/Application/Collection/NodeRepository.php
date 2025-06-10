@@ -15,7 +15,7 @@ namespace App\Application\Collection;
 
 class NodeRepository
 {
-    private ?int $treeId;  // TODO: treeId could be root node id
+    private ?int $treeId;  // TODO: treeId could be root node id?
 
     private ?Node $rootNode;
 
