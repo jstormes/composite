@@ -4,6 +4,15 @@ declare(strict_types=1);
 
 namespace App\Application\Collection;
 
+/***
+ * Table:
+ * id, parentId, rootId, position, contentObjectType, contentId.
+ *
+ * ORM join by object?
+ */
+
+
+
 class NodeRepository
 {
     private ?int $treeId;  // TODO: treeId could be root node id
@@ -16,15 +25,16 @@ class NodeRepository
         return new Node();
     }
 
-    public function save(Node $rootNode): int
+    public function save(Node $rootNode): void
     {
-        return 0;
+        // Calls save on node contents.  (ORM clean dirty)
     }
 
     // Search criteria could use ORM mapping to loosely couple the contents to the node.
-    public function search(?object $criteria, int $page=0, int $pageSize=25 ): object
+    // Only returns array of root objects
+    public function search(?object $criteria, int $page=0, int $pageSize=25 ): arrayOfNode
     {
-        return new class(){};
+        return new arrayOfNode();
     }
 
 }
