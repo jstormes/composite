@@ -8,7 +8,7 @@ namespace App\Application\Collection;
  * Table:
  * id, parentId, rootId, position, contentObjectType, contentId.
  *
- * ORM join by object?
+ * ORM join by object?  object–relational impedance mismatch
  */
 
 
