@@ -1,4 +1,4 @@
-FROM php:8
+FROM php:8.3
 
 ############################################################################
 # Install system commands and libraries

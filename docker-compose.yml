@@ -69,7 +69,7 @@ services:
     #
     # This command starts a PHP server on port 80 using our mapped folder `/app/html`.
     #
-    command: bash -c 'php -S 0.0.0.0:80 -t /app/html'
+    command: bash -c 'php -S 0.0.0.0:80 -t /app/composite/public'
     #
     # The export in the command: line overrides the xdebug.ini and any environment variables previously set.
     # XDEBUG_MODE, this will override the XDebug settings for the container.
@@ -125,20 +125,20 @@ services:
   # This server can be used to test the production server setup before
   # deploying to production.
   ##########################################################################
-  php-prod:
-    build:
-      context: .
-#      ssh:
-#        - default
-      dockerfile: .docker/php.production.dockerfiles/php8.prod.dockerfile
-  # `docker compose push php-prod` will push the image to the repository.
-#    image: localhost:5000/yourimage  ## goes to local registry
-#    image: your-dockerid/yourimage  ## goes to your repository on Docker Hub
-    environment:
-      - TZ=America/Chicago
-      - MYSQL_DSN=mysql:host=mariadb;dbname=app;port=3306;charset=utf8mb4;collation=utf8mb4_unicode_ci;user=root;password=password
-    ports:
-      - "9088:80"
+#  php-prod:
+#    build:
+#      context: .
+##      ssh:
+##        - default
+#      dockerfile: .docker/php.production.dockerfiles/php8.prod.dockerfile
+#  # `docker compose push php-prod` will push the image to the repository.
+##    image: localhost:5000/yourimage  ## goes to local registry
+##    image: your-dockerid/yourimage  ## goes to your repository on Docker Hub
+#    environment:
+#      - TZ=America/Chicago
+#      - MYSQL_DSN=mysql:host=mariadb;dbname=app;port=3306;charset=utf8mb4;collation=utf8mb4_unicode_ci;user=root;password=password
+#    ports:
+#      - "9088:80"
 
   ##########################################################################
   # This section defines a Maria DB server and a PhpMyAdmin server for the
